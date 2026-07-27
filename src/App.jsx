@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import BeijingClock from './components/BeijingClock'
-import Converter from './components/Converter'
 import Header from './components/Header'
 import Timeline from './components/Timeline'
 import TimezoneTable from './components/TimezoneTable'
@@ -22,7 +21,6 @@ export default function App() {
           <BeijingClock now={now} use24Hour={use24Hour} />
           <Timeline now={now} use24Hour={use24Hour} />
         </div>
-        <Converter now={now} use24Hour={use24Hour} />
         <TimezoneTable now={now} use24Hour={use24Hour} />
       </main>
       <footer><span>此刻 · 世界时间</span><span>所有换算均在你的浏览器中完成</span></footer>

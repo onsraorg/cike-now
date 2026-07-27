@@ -36,21 +36,6 @@ export function getZoneOffset(date, timeZone) {
   return represented - Math.floor(date.getTime() / 1000) * 1000
 }
 
-export function zonedTimeToDate({ year, month, day, hour, minute }, timeZone) {
-  const desired = Date.UTC(year, month - 1, day, hour, minute, 0)
-  let guess = desired
-
-  for (let i = 0; i < 4; i += 1) {
-    const p = getZoneParts(new Date(guess), timeZone)
-    const observed = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second)
-    const adjustment = desired - observed
-    guess += adjustment
-    if (adjustment === 0) break
-  }
-
-  return new Date(guess)
-}
-
 export function formatTime(date, timeZone, use24Hour = true, includeSeconds = true) {
   return new Intl.DateTimeFormat('zh-CN', {
     timeZone,
@@ -69,16 +54,6 @@ export function formatDate(date, timeZone, options = {}) {
     day: 'numeric',
     weekday: options.weekday === false ? undefined : 'long',
   }).format(date)
-}
-
-export function formatInputDate(date, timeZone) {
-  const p = getZoneParts(date, timeZone)
-  return `${p.year}-${String(p.month).padStart(2, '0')}-${String(p.day).padStart(2, '0')}`
-}
-
-export function formatInputTime(date, timeZone) {
-  const p = getZoneParts(date, timeZone)
-  return `${String(p.hour).padStart(2, '0')}:${String(p.minute).padStart(2, '0')}`
 }
 
 export function getRelativeHours(date, timeZone) {

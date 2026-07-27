@@ -16,14 +16,6 @@ export function SearchIcon() {
   )
 }
 
-export function SwapIcon() {
-  return (
-    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M5 8h14m0 0-3-3m3 3-3 3M19 16H5m0 0 3 3m-3-3 3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
 export function SunIcon({ size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
